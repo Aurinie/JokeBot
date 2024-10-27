@@ -1,0 +1,125 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuración del fondo */
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 10rem;
+    font-weight: bold;
+    text-shadow: 5px 4px 3px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+}
+
+/* Imagen de fondo con animación más dinámica */
+body::before {
+    content: "";
+    background-image: url('supremejoker.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    animation: dynamicBackground 20s ease-in-out infinite;
+}
+
+/* Animación de fondo dinámica */
+@keyframes dynamicBackground {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    25% {
+        transform: scale(1.1) translate(10px, -10px);
+    }
+    50% {
+        transform: scale(1.2) translate(-10px, 10px);
+    }
+    75% {
+        transform: scale(1.1) translate(10px, 10px);
+    }
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+/* Botón de generar chiste */
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* Contenedor de texto de chiste */
+#jokeContainer {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 400px;
+    font-size: 1.1rem;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+/* Responsividad para pantallas medianas y pequeñas */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+    button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    #jokeContainer {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    #jokeContainer {
+        font-size: 0.9rem;
+    }
+}
